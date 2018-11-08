@@ -19,6 +19,31 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    final txtHeader = Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text(
+        'Welcome Back',
+        style: TextStyle(
+            fontSize: 24.0,
+            color: Colors.blueGrey,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Monserrat"),
+      ),
+    );
+
+    final txtSubHeader = Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text(
+        'Sign in to continue invest',
+        style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.black26,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Monserrat"),
+      ),
+    );
+
+
     final txtEmail = Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(
@@ -95,29 +120,32 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Material(
-        borderRadius: BorderRadius.circular(30.0),
-        shadowColor: Colors.lightBlueAccent.shade100,
-        elevation: 5.0,
-        child: MaterialButton(
-          minWidth: 200.0,
-          height: 42.0,
-          onPressed: () {
-            //Navigator.of(context).pushNamed(HomePage.tag);
-          },
-          color: Colors.lightBlueAccent,
-          child: Text('Log In', style: TextStyle(color: Colors.white)),
+    final TextLabel = Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        new Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            'Forgot password?',
+            style: TextStyle(
+                color: Colors.blueAccent,
+                fontFamily: "Monserrat",
+                fontSize: 12.0,
+                fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
+      ],
     );
 
-    final forgotLabel = SizedBox(
-      width: 200.0,
+    final forgotLabel = Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Text(
         'Forgot password?',
-        style: TextStyle(color: Colors.blueAccent,fontFamily: "Monserrat",fontSize: 12.0,fontWeight: FontWeight.bold),
+        style: TextStyle(
+            color: Colors.blueAccent,
+            fontFamily: "Monserrat",
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold),
       ),
     );
 
@@ -125,10 +153,13 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color.fromRGBO(247, 247, 247, 1.0),
       body: Center(
         child: ListView(
-          shrinkWrap: true,
           padding: EdgeInsets.only(left: 32.0, right: 32.0),
           children: <Widget>[
             logo,
+            txtHeader,
+            SizedBox(height: 3.0),
+            txtSubHeader,
+            SizedBox(height: 50.0),
             txtEmail,
             SizedBox(height: 4.0),
             email,
@@ -136,9 +167,10 @@ class _LoginPageState extends State<LoginPage> {
             txtPassword,
             SizedBox(height: 4.0),
             password,
+            SizedBox(height: 12.0),
+            TextLabel,
             SizedBox(height: 32.0),
-            loginNew,
-            forgotLabel
+            loginNew
           ],
         ),
       ),
